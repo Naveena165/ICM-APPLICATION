@@ -1,23 +1,28 @@
 /**
- * Payees Module - Central Export
+ * Compensation Plans Module - Central Export
  * 
- * This module contains all payee-related functionality including:
- * - Payee management components
- * - Payee data models
- * - Payee-specific reports
+ * This module contains all compensation plan-related functionality including:
+ * - Compensation plan management components
+ * - Plan data models
+ * - Plan-specific reports
+ * - Credit categories and qualifying criteria
  */
 
 // Main Components
-export { default as PayeesList } from './components/PayeesList';
-export { default as AddPayee } from './components/AddPayee';
-export { default as PayeeDetail } from './components/PayeeDetail';
-export { default as PayeeDetails } from './components/PayeeDetails';
+export { default as CompensationPlans } from './components/CompensationPlans';
+export { default as CreditCategory } from './components/CreditCategory';
+export { default as QualifyingCriteria } from './components/QualifyingCriteria';
+export { default as ParticipantTable } from './components/ParticipantTable';
 
 // Reports
-export { default as PayeeAttainmentReport } from './reports/PayeeAttainmentReport';
-export { default as PayeeCommissionHistoryReport } from './reports/PayeeCommissionHistoryReport';
-export { default as EarningsByPayeeReport } from './reports/EarningsByPayeeReport';
-export { default as OverpaidUnderpaidPayeesReport } from './reports/OverpaidUnderpaidPayeesReport';
+export { default as PlanComparisonReport } from './reports/PlanComparisonReport';
+export { default as PlanPerformanceReport } from './reports/PlanPerformanceReport';
+export { default as PlanCostReport } from './reports/PlanCostReport';
+export { default as PlanROIReport } from './reports/PlanROIReport';
 
 // Data
-export { mockPayees } from './data/mockPayees';
+export { mockPlans } from './data/mockPlans';
+export { mockCreditCategories } from './data/mockCreditCategories';
+
+// Models
+export { createCreditCategory } from './models/CreditCategory';
