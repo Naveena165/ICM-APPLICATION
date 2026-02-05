@@ -1,0 +1,107 @@
+/**
+ * Payee Attainment Report Styles
+ * 
+ * Color coding for attainment percentages:
+ * - Green: >= 100% (Achieved)
+ * - Yellow: 80-99% (On Track)
+ * - Red: < 80% (Below Target)
+ */
+
+/* Attainment cell styling */
+.attainment-cell {
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+}
+
+.attainment-achieved {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.attainment-on-track {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.attainment-below-target {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+/* Status badge styling */
+.status-badge-achieved {
+  background-color: #10b981;
+  color: white;
+}
+
+.status-badge-on-track {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.status-badge-below-target {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Summary cards for attainment report */
+.attainment-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.attainment-summary-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attainment-summary-card .label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.attainment-summary-card .value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.attainment-summary-card.achieved .value {
+  color: #10b981;
+}
+
+.attainment-summary-card.on-track .value {
+  color: #f59e0b;
+}
+
+.attainment-summary-card.below-target .value {
+  color: #ef4444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .attainment-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .attainment-cell {
+    min-width: 50px;
+    padding: 3px 8px;
+    font-size: 13px;
+  }
+}
