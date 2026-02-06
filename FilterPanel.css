@@ -1,0 +1,155 @@
+/* FilterPanel.css - Universal Filter Panel Styles */
+
+.filter-panel {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filter-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.filter-panel-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.btn-reset-filters {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-reset-filters:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-item label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.filter-select,
+.filter-input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #111827;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.filter-select:focus,
+.filter-input:focus {
+  outline: none;
+  border-color: #0bafd5;
+  box-shadow: 0 0 0 3px rgba(11, 175, 213, 0.1);
+}
+
+.filter-select:hover,
+.filter-input:hover {
+  border-color: #9ca3af;
+}
+
+/* Multi-select specific styles */
+.filter-multiselect {
+  grid-column: span 1;
+}
+
+.multiselect-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-select.multiselect {
+  min-height: 120px;
+  padding: 4px;
+}
+
+.filter-select.multiselect option {
+  padding: 6px 8px;
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+.filter-select.multiselect option:checked {
+  background: linear-gradient(135deg, #0bafd5 0%, #26c07d 100%);
+  color: white;
+}
+
+.multiselect-hint {
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .filter-controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-multiselect {
+    grid-column: span 1;
+  }
+}
+
+/* Date range specific styles */
+.filter-item.daterange {
+  grid-column: span 1;
+}
+
+/* Accessibility improvements */
+.filter-select:disabled,
+.filter-input:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Loading state */
+.filter-panel.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Empty state */
+.filter-panel-empty {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}

@@ -1,0 +1,201 @@
+/**
+ * Tier Attainment Report Styles
+ */
+
+.tier-attainment-report {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.report-header h2 {
+  margin: 0 0 10px 0;
+  color: #1f2937;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.report-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.tier-data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.plan-tier-section {
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.plan-tier-section h3 {
+  margin: 0 0 20px 0;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Stacked bar chart */
+.tier-bar-chart {
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.tier-bar {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tier-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.tier-segment:hover {
+  opacity: 0.8;
+  transform: scaleY(1.05);
+}
+
+.tier-segment-label {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 8px;
+}
+
+/* Tier table */
+.tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tier-table thead {
+  background: linear-gradient(135deg, #0bafd5 0%, #26c07d 100%);
+  color: white;
+}
+
+.tier-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tier-table th:nth-child(n+3) {
+  text-align: right;
+}
+
+.tier-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s;
+}
+
+.tier-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.tier-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tier-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.tier-table td:nth-child(n+3) {
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+.tier-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.no-data {
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b7280;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 2px dashed #d1d5db;
+}
+
+.no-data p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tier-attainment-report {
+    padding: 15px;
+  }
+
+  .plan-tier-section {
+    padding: 15px;
+  }
+
+  .tier-bar {
+    height: 50px;
+  }
+
+  .tier-segment-label {
+    font-size: 10px;
+  }
+
+  .tier-table {
+    font-size: 12px;
+  }
+
+  .tier-table th,
+  .tier-table td {
+    padding: 8px 10px;
+  }
+
+  .tier-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

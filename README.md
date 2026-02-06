@@ -1,219 +1,345 @@
-# Compensation Plans Module
+# Custom Rules Module
 
-This module contains all compensation plan-related functionality for the Incentive Compensation Management (ICM) system.
+## Overview
+The Custom Rules module provides comprehensive functionality for configuring dynamic business logic for the calculation engine. It includes rule creation, editing, versioning, and simulation capabilities.
 
-## 📁 Folder Structure
+## Module Structure
 
 ```
-compensation-plans/
-├── components/          # Plan management UI components
-│   ├── CompensationPlans.jsx       # Main plans list and management view
-│   ├── CompensationPlans.css       # Styles for plans view
-│   ├── CreditCategory.jsx          # Credit category component
-│   ├── CreditCategory.css          # Credit category styles
-│   ├── CreditCategory.test.js      # Credit category tests
-│   ├── QualifyingCriteria.jsx      # Qualifying criteria component
-│   ├── QualifyingCriteria.css      # Qualifying criteria styles
-│   ├── QualifyingCriteria.test.js  # Qualifying criteria tests
-│   └── ParticipantTable.jsx        # Plan participants table
-│
-├── data/                # Mock data and data models
-│   ├── mockPlans.js                # Sample plan data for development
-│   └── mockCreditCategories.js     # Sample credit category data
-│
-├── models/              # Data models and business logic
-│   └── CreditCategory.js           # Credit category model class
-│
-├── reports/             # Plan-specific reports
-│   ├── PlanComparisonReport.jsx            # Compare multiple plans
-│   ├── PlanComparisonReport.css            # Comparison report styles
-│   ├── PlanComparisonReport.test.js        # Comparison report tests
-│   ├── PlanPerformanceReport.jsx           # Plan performance metrics
-│   ├── PlanPerformanceReport.test.js
-│   ├── PlanCostReport.jsx                  # Plan cost analysis
-│   ├── PlanCostReport.test.js
-│   ├── PlanROIReport.jsx                   # Return on investment analysis
-│   └── PlanROIReport.test.js
-│
-├── styles/              # Shared styles for plans module (future use)
-│
-├── index.js             # Central export file for the module
-└── README.md            # This file
+custom-rules/
+├── components/          # React components
+│   ├── CustomRules.jsx              # Main rules list and management
+│   ├── CustomRules.css              # Styles
+│   └── CustomRulesSections.jsx      # Editor section components
+├── utils/              # Utility functions (future)
+├── styles/             # Additional styles (future)
+├── index.js            # Central export point
+└── README.md           # This file
 ```
 
-## 🎯 Module Purpose
+## Components
 
-The Compensation Plans module manages all aspects of compensation plan functionality:
+### CustomRules (Main Component)
+- **Purpose**: Main interface for managing custom business rules
+- **Features**:
+  - Rules listing with search and filters
+  - Category filtering (Rate Table, Tier, Mapping, Flag, Exception)
+  - Status filtering (Active, Inactive)
+  - Summary statistics
+  - Clone, version history, and delete actions
+  - Export functionality
+  - Rule editor integration
 
-- **Plan Management**: Create, view, edit, and manage compensation plans
-- **Credit Categories**: Define and manage credit categories for plans
-- **Qualifying Criteria**: Set up eligibility and qualifying rules
-- **Participant Management**: Manage plan participants and assignments
-- **Plan Reports**: Specialized reports for plan analysis and comparison
-- **Data Models**: Business logic and data structures for plans
+### CustomRuleEditor
+- **Purpose**: Comprehensive rule creation and editing interface
+- **Features**:
+  - Tabbed interface with 5 sections
+  - Rule header configuration
+  - Lookup keys definition (up to 5 keys)
+  - Output values configuration
+  - Preview and simulation
+  - Version management
 
-## 📦 Components
+### Section Components
 
-### Main Components
+#### RuleHeaderSection
+- Rule name and category
+- Lookup code (unique identifier)
+- Status and priority
+- Effective date range
+- Calculation type
+- Description and grouping
+- Audit information
 
-#### CompensationPlans
-The primary interface for viewing and managing all compensation plans.
-- View all active plans
-- Search and filter plans
-- Create new plans
-- Navigate to plan details
-- Manage plan lifecycle
+#### LookupKeysSection
+- Up to 5 configurable lookup keys
+- Multi-dimensional rule matching
+- Key type selection (Product, Region, Customer Type, Role, Custom)
+- Key value configuration
+- Multi-key combination logic
 
-#### CreditCategory
-Component for managing credit categories within plans.
-- Define credit types
-- Set credit rules
-- Configure credit calculations
-- Manage category hierarchies
+#### OutputValuesSection
+- Dynamic fields based on calculation type
+- Rate/Value configuration
+- Multiplier settings
+- Threshold ranges
+- Boolean flags
+- Text values
+- Validation rules
 
-#### QualifyingCriteria
-Component for defining plan eligibility and qualifying rules.
-- Set eligibility criteria
-- Define qualification thresholds
-- Configure rule logic
-- Manage criteria groups
+#### PreviewSection
+- Rule configuration summary
+- Sample transaction matching
+- Output value simulation
+- Match status visualization
 
-#### ParticipantTable
-Table component for displaying and managing plan participants.
-- View assigned participants
-- Add/remove participants
-- Track participant status
-- Manage participant roles
+#### VersioningSection
+- Version history display
+- Version comparison
+- Change reason tracking
+- Restore functionality
+- Audit trail
 
-### Reports
+## Usage
 
-#### PlanComparisonReport
-Side-by-side comparison of multiple compensation plans.
-- Compare plan structures
-- Analyze differences
-- Evaluate effectiveness
-- Export comparisons
-
-#### PlanPerformanceReport
-Performance metrics and analytics for compensation plans.
-- Track plan performance
-- Monitor KPIs
-- Analyze trends
-- Identify issues
-
-#### PlanCostReport
-Cost analysis and budgeting for compensation plans.
-- Total plan costs
-- Cost breakdowns
-- Budget tracking
-- Cost projections
-
-#### PlanROIReport
-Return on investment analysis for compensation plans.
-- Calculate ROI
-- Compare investment vs. returns
-- Analyze effectiveness
-- Justify plan costs
-
-## 🔌 Usage
-
-### Importing Components
-
+### Import the module
 ```javascript
-// Import individual components
-import { 
-  CompensationPlans, 
-  CreditCategory, 
-  QualifyingCriteria,
-  ParticipantTable 
-} from './compensation-plans';
-
-// Import reports
-import { 
-  PlanComparisonReport,
-  PlanPerformanceReport,
-  PlanCostReport,
-  PlanROIReport 
-} from './compensation-plans';
-
-// Import data
-import { mockPlans, mockCreditCategories } from './compensation-plans';
-
-// Import models
-import { CreditCategoryModel } from './compensation-plans';
+import { CustomRules } from '../custom-rules';
+// or
+import CustomRules from '../custom-rules';
 ```
 
-### Using in App.jsx
-
+### Import specific components
 ```javascript
-import { CompensationPlans } from './compensation-plans';
-
-// In your component
-{currentPage === 'compensation-plans' && <CompensationPlans />}
+import { 
+  CustomRules,
+  RuleHeaderSection,
+  LookupKeysSection,
+  OutputValuesSection,
+  PreviewSection,
+  VersioningSection
+} from '../custom-rules';
 ```
 
-## 🧪 Testing
+### Use in App.jsx
+```javascript
+import { CustomRules } from './custom-rules';
 
-Component test files are included:
-- `CreditCategory.test.js` - Credit category component tests
-- `QualifyingCriteria.test.js` - Qualifying criteria tests
-- `PlanComparisonReport.test.js` - Plan comparison report tests
-- `PlanPerformanceReport.test.js` - Performance report tests
-- `PlanCostReport.test.js` - Cost report tests
-- `PlanROIReport.test.js` - ROI report tests
+function App() {
+  return (
+    <div>
+      <CustomRules />
+    </div>
+  );
+}
+```
 
-Run tests with: `npm test`
+## Rule Categories
 
-## 🎨 Styling
+### Rate Table
+- Commission rates
+- Discount rates
+- Pricing tiers
+- Percentage-based calculations
 
-- Component-specific styles are co-located with components
-- Shared styles can be added to the `styles/` folder
-- Follows ICM design system guidelines
-- Consistent with other modules (Dashboard, Payees, etc.)
+### Tier
+- Performance tiers
+- Territory multipliers
+- Level-based adjustments
+- Threshold-based rules
 
-## 📊 Data Models
+### Mapping
+- Product category mapping
+- Customer segment mapping
+- Territory assignments
+- Classification rules
 
-### CreditCategory Model
-Business logic for credit categories including:
-- Category validation
-- Credit calculations
-- Rule evaluation
-- Category hierarchies
+### Flag
+- Boolean indicators
+- Eligibility flags
+- Qualification markers
+- Status indicators
 
-### Mock Data
-- `mockPlans.js` - Sample compensation plans
-- `mockCreditCategories.js` - Sample credit categories
+### Exception
+- Override rules
+- Special case handling
+- Exception processing
+- Custom logic
 
-## 📝 Notes
+## Calculation Types
 
-- All files from the original scattered structure have been consolidated here
-- Import paths in other modules may need to be updated to reference this new structure
-- This module is self-contained and can be developed/tested independently
-- Models folder contains business logic separate from UI components
+### Rate
+- Percentage-based calculations
+- Commission rates
+- Discount percentages
+- Maximum: 100.00
 
-## 🔄 Migration Status
+### Value
+- Fixed amount values
+- Flat fees
+- Bonus amounts
+- Absolute values
 
-✅ Components migrated from `src/components/compensation-plans/`
-✅ Data migrated from `src/data/mockPlans.js` and `mockCreditCategories.js`
-✅ Model migrated from `src/models/CreditCategory.js`
-✅ Reports migrated from `src/components/reports/Plan*.jsx`
-✅ Tests included for components and reports
-✅ Central index.js created for easy imports
+### Multiplier
+- Multiplication factors
+- Scaling factors
+- Typical range: 0.5 - 2.0
+- Performance multipliers
 
-## 🔗 Related Modules
+### Boolean
+- True/False flags
+- Yes/No indicators
+- Eligibility markers
+- Status flags
 
-This module integrates with:
-- **Payees Module** - Plan participants and assignments
-- **Rules Module** - Plan rules and criteria
-- **Reports Module** - Additional plan analytics
-- **Dashboard Module** - Plan performance summaries
+### Threshold
+- Min/Max ranges
+- Boundary conditions
+- Range-based rules
+- Limit checking
 
-## 🚀 Future Enhancements
+### Text
+- String values
+- Category names
+- Classification labels
+- Descriptive values
 
-Potential additions to this module:
-- Plan versioning and history
-- Plan templates
-- Advanced plan builder UI
-- Plan simulation tools
-- Bulk plan operations
-- Plan approval workflows
+## Lookup Keys
+
+### Key 1: Product
+- Product SKU
+- Product category
+- Product line
+
+### Key 2: Region
+- Geographic region
+- Territory
+- Sales area
+
+### Key 3: Customer Type
+- Customer segment
+- Account type
+- Customer tier
+
+### Key 4: Role
+- Payee role
+- Job title
+- Position type
+
+### Key 5: Custom Attribute
+- Custom field
+- Special attribute
+- Flexible key
+
+## Versioning
+
+### Version Management
+- Automatic version increment on save
+- Historical version retention
+- Version comparison
+- Restore capability
+
+### Change Tracking
+- Change reason required
+- Modified by tracking
+- Modification date
+- Audit trail
+
+### Version Matching
+- Effective date-based matching
+- Transaction date alignment
+- Historical accuracy
+- Calculation consistency
+
+## Mock Data
+
+### Sample Rules (3 total)
+1. **Standard Commission Rate**
+   - Category: Rate Table
+   - Type: Rate
+   - Status: Active
+   - Priority: 10
+
+2. **Premium Territory Multiplier**
+   - Category: Tier
+   - Type: Multiplier
+   - Status: Active
+   - Priority: 20
+
+3. **Product Category Mapping**
+   - Category: Mapping
+   - Type: Text
+   - Status: Inactive
+   - Priority: 5
+
+## Styling
+
+### Design System
+- **Colors**: Gradient theme (#0bafd5 to #26c07d)
+- **Typography**: Bold headers with gradient text
+- **Cards**: Rounded corners (12px) with hover effects
+- **Tables**: Gradient headers with hover states
+- **Badges**: Color-coded by category and status
+- **Tabs**: Active state with gradient background
+
+### Status Colors
+- **Active**: Green (#e8f5e9 text #2e7d32)
+- **Inactive**: Gray (#f5f5f5 text #757575)
+- **Current**: Blue (#e3f2fd text #1565c0)
+- **Historical**: Gray (#f5f5f5 text #757575)
+
+### Category Colors
+- **Rate Table**: Green (#e8f5e9 text #2e7d32)
+- **Tier**: Blue (#e3f2fd text #1565c0)
+- **Mapping**: Orange (#fff3e0 text #e65100)
+- **Flag**: Purple (#f3e5f5 text #6a1b9a)
+- **Exception**: Red (#ffebee text #c62828)
+
+## Features
+
+### Rule Management
+- ✅ Create new rules
+- ✅ Edit existing rules
+- ✅ Clone rules
+- ✅ Delete rules
+- ✅ Export rules to CSV
+- ✅ Search by name or code
+- ✅ Filter by category and status
+
+### Rule Configuration
+- ✅ Header information
+- ✅ Lookup keys (up to 5)
+- ✅ Output values
+- ✅ Preview and simulation
+- ✅ Version management
+
+### Validation
+- ✅ Required field validation
+- ✅ Unique lookup code
+- ✅ Date range validation
+- ✅ Priority range (1-100)
+- ✅ Rate maximum (100.00)
+- ✅ Threshold validation
+
+## Future Enhancements
+
+### Phase 1: API Integration
+- Connect to backend rules engine
+- Real-time validation
+- Rule execution testing
+
+### Phase 2: Advanced Features
+- Bulk operations
+- Rule templates
+- Import/export functionality
+- Advanced search
+
+### Phase 3: Testing & Simulation
+- Rule testing framework
+- Transaction simulation
+- Impact analysis
+- Performance testing
+
+### Phase 4: Collaboration
+- Rule approval workflow
+- Comments and annotations
+- Change requests
+- Team collaboration
+
+## Related Modules
+
+- **Compensation Plans**: Rule application in plans
+- **Transactions**: Rule execution on transactions
+- **Reports**: Rule impact analysis reports
+- **Administration**: Rule permissions and access control
+
+## Notes
+
+- All components are self-contained
+- Mock data should be replaced with API calls in production
+- Module follows the same pattern as other ICM modules
+- Ready for backend integration
+
+## Completion Status
+
+✅ **COMPLETE** - Custom Rules module successfully created and organized following the established pattern.

@@ -1,0 +1,131 @@
+/* Administration Container - Matching CompensationPlans */
+.administration-container {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* Header - Matching CompensationPlans */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.header-title h1 {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0bafd5 0%, #26c07d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 8px 0;
+}
+
+.header-title p {
+  color: #64748b;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Admin Module Cards Grid - Matching ImportAssistants */
+.admin-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+/* Admin Module Card - Matching ImportAssistants card style */
+.admin-module-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+}
+
+.admin-module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(11, 175, 213, 0.2);
+  border-color: #0bafd5;
+}
+
+.admin-module-card:focus {
+  outline: 3px solid #0bafd5;
+  outline-offset: 2px;
+}
+
+/* Module Icon */
+.module-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+/* Module Content */
+.module-content {
+  flex: 1;
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.module-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.module-badge {
+  background: #f59e0b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.module-description {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Module Arrow */
+.module-arrow {
+  font-size: 28px;
+  color: #0bafd5;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.admin-module-card:hover .module-arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .admin-modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,28 +1,15 @@
-/**
- * Compensation Plans Module - Central Export
- * 
- * This module contains all compensation plan-related functionality including:
- * - Compensation plan management components
- * - Plan data models
- * - Plan-specific reports
- * - Credit categories and qualifying criteria
- */
+// Custom Rules Module - Central Export Point
+// This module provides custom business rules configuration functionality
 
 // Main Components
-export { default as CompensationPlans } from './components/CompensationPlans';
-export { default as CreditCategory } from './components/CreditCategory';
-export { default as QualifyingCriteria } from './components/QualifyingCriteria';
-export { default as ParticipantTable } from './components/ParticipantTable';
+export { default as CustomRules } from './components/CustomRules';
+export {
+  RuleHeaderSection,
+  LookupKeysSection,
+  OutputValuesSection,
+  PreviewSection,
+  VersioningSection
+} from './components/CustomRulesSections';
 
-// Reports
-export { default as PlanComparisonReport } from './reports/PlanComparisonReport';
-export { default as PlanPerformanceReport } from './reports/PlanPerformanceReport';
-export { default as PlanCostReport } from './reports/PlanCostReport';
-export { default as PlanROIReport } from './reports/PlanROIReport';
-
-// Data
-export { mockPlans } from './data/mockPlans';
-export { mockCreditCategories } from './data/mockCreditCategories';
-
-// Models
-export { createCreditCategory } from './models/CreditCategory';
+// Export default for convenience
+export { default } from './components/CustomRules';
